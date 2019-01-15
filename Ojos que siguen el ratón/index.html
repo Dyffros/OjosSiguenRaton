@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos.css">
+    <title></title>
+  </head>
+  <body>
+  <div class="ojos">
+    <div class="ojo">
+      <div class="pupila"></div>
+    </div>
+    <div class="ojo">
+      <div class="pupila"></div>
+    </div>
+  </div>
+<script>
+  var ojos = document.getElementsByClassName("pupila");
+  document.onmousemove = function(){
+    //event.clientX => Obtiene la coordenada horizontal del ratón.
+    //event.clientY => Obtiene la coordenada vertical del ratón of the mouse.
+    //window.innerWidth => Obtiene la anchura de la ventana del navegador.
+    //window.innerHeight => Obtiene la altura de la ventana del navegador.
+    var x = event.clientX * 100 / window.innerWidth + "%";
+    var y = event.clientY * 100 / window.innerHeight + "%";
+    for(var i=0;i<2;i++){
+      ojos[i].style.left = x;
+      ojos[i].style.top = y;
+      ojos[i].style.transform = "translate(-"+x+",-"+y+")";
+    }
+  }
+</script>
+  </body>
+</html>
